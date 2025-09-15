@@ -1,11 +1,18 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PollList from "./pages/PollList";
+import PollDetail from "./pages/PollDetail.tsx";
+import CreatePoll from "./pages/CreatePoll.tsx";
+import Signup from "./pages/Signup.tsx";
 
-
-function App() {
+export default function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold">Hello World</h1>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PollList />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/polls/:id" element={<PollDetail />} />
+        <Route path="/create" element={<CreatePoll />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App
